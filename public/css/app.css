@@ -258,3 +258,22 @@ footer {
   background-color: red;
   height: 220px;
 }
+
+.news-item {
+  background-color: #88c794;
+  padding: 20px;
+}
+
+.news-item-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.news-item-photo img {
+  max-width: 300px;
+  height: auto;
+}
+
+.news-item-date {
+  text-align: right;
+}

@@ -6,6 +6,20 @@
 <div class="main-header bg-white rounded">
     <h2>Новости</h2>
 </div>
-<div class="">
+<div class="news">
+    @foreach($data as $el)
+    <div class="news-item">
+        <article>
+            <p>{{ $el->text }}</p>
+            <p>{{ $el->atricle }}</p>
+            <div class="news-item-photo">
+                <img src="{{ $el->photo }}" alt="">
+            </div>
+            <div class="news-item-date">
+                <p>{{ date_format(date_create($el->date), 'd-m-Y H:i:s') }}</p>
+            </div>
+        </article>
+    </div>
+    @endforeach
 </div>
 @endsection

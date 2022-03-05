@@ -52,6 +52,6 @@ class NewsController extends Controller
 
     public function allNews() {
         $news = new News;
-        return view('news', ['data' => $news->all()]);
+        return view('news', ['data' => $news->orderBy('date', 'desc')->take(10)->get()]);
     }
 }
