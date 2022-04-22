@@ -46,6 +46,14 @@
             <li class="nav-item d-flex justify-content-center">
               <a class="nav-link" href="{{ route('news') }}">Новости</a>
             </li>
+            <li class="nav-item d-flex justify-content-center">
+              @auth("web")
+              <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+              @endauth()
+              @guest("web")
+              <a class="nav-link" href="{{ route('login') }}">Войти</a>
+              @endguest()
+            </li>
           </ul>
         </div>
       </div>

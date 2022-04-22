@@ -22,4 +22,13 @@
     </div>
     @endforeach
 </div>
+<div class="news-pagination">
+    <nav>
+        <ul class="pagination">
+            @for ($i = 1; $i <= $count; $i++) 
+            <li class="page-item"><a class="page-link" href="{{ route('news') }}?page={{ $i }}">{{ $i }}</a></li>
+            @endfor
+        </ul>
+    </nav>
+</div>
 @endsection

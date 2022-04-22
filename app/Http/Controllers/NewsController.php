@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Http\Controllers\DateTime;
+use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {
@@ -52,6 +53,7 @@ class NewsController extends Controller
 
     public function allNews() {
         $news = new News;
-        return view('news', ['data' => $news->orderBy('date', 'desc')->take(10)->get()]);
+        
+        return view('news', ['data' => $news->orderBy('date', 'desc')->paginate(3), 'count' => ceil($news->count() / 3)]);
     }
 }

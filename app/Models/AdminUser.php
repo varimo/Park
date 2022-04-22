@@ -4,17 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class News extends Model
+class AdminUser extends Authenticatable
 {
     use HasFactory;
 
     protected $fillable = [
-        'vk_id',
-        'date',
-        'text',
-        'article',
-        'photo',
-        'type',
+        'name',
+        'email',
+        'password',
     ];
 }

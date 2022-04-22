@@ -38,4 +38,23 @@ Route::get('/news', 'App\Http\Controllers\NewsController@allNews')->name('news')
 
 Route::post('/feedback-send', 'App\Http\Controllers\FeedbackController@submit')->name('feedback-form');
 
-  
+Route::middleware("auth")->group(function () {
+    Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
+});
+
+Route::middleware("guest")->group(function () {
+    Route::get('/register', 'App\Http\Controllers\AuthController@showRegisterForm')->name('register');
+    Route::post('/register_process', 'App\Http\Controllers\AuthController@register')->name('register_process');
+    Route::get('/login', 'App\Http\Controllers\AuthController@showLoginForm')->name('login');
+    Route::post('/login_process', 'App\Http\Controllers\AuthController@login')->name('login_process');
+    Route::get('/forgot', 'App\Http\Controllers\AuthController@showForgotForm')->name('forgot');
+    Route::post('/forgot_process', 'App\Http\Controllers\AuthController@forgot')->name('forgot_process');
+});
+
+Route::get('/contacts', 'App\Http\Controllers\MailFormController@showContactForm')->name('contacts');
+Route::post('/contact_form_process', 'App\Http\Controllers\MailFormController@contactForm')->name('contact_form_process');
+
+
+
+
+
