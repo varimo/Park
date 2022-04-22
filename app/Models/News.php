@@ -11,7 +11,6 @@ class News extends Model
 
     protected $fillable = [
         'vk_id',
-        'date',
         'text',
         'article',
         'photo',

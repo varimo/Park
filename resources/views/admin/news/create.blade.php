@@ -36,13 +36,7 @@
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
 
-                <input name="date" type="datetime-local" class="w-full h-12 border border-gray-800 rounded px-3 @error('date') border-red-500 @enderror" placeholder="Дата" value="{{ $post->date ?? '' }}" />
-
-                @error('date')
-                    <p class="text-red-500">{{ $message }}</p>
-                @enderror
-
-                <button type="submit" class="text-center w-full bg-blue-900 rounded-md text-white py-3 font-medium">Сохранить</button>
+                <button type="submit" class="">Сохранить</button>
             </form>
         </div>
     </div>

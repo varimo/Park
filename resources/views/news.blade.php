@@ -15,9 +15,6 @@
             <div class="news-item-photo">
                 <img src="{{ $el->photo }}" alt="">
             </div>
-            <div class="news-item-date">
-                <p>{{ date_format(date_create($el->date), 'd-m-Y H:i:s') }}</p>
-            </div>
         </article>
     </div>
     @endforeach

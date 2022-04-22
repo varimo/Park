@@ -26,8 +26,7 @@ class PostFormRequest extends FormRequest
         return [
             "vk_id" => ["required"],
             "text" => ["required"],
-            "photo" => ["required"],
-            "date" => ["required"]
+            "photo" => ["required"]
         ];
     }
 }

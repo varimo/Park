@@ -17,7 +17,7 @@ class NewController extends Controller
     public function index()
     {
         $news = new News;
-        $news = $news->orderBy('date', 'desc')->paginate(3);
+        $news = $news->orderBy('created_at', 'desc')->paginate(3);
         return view('admin.news.index', [
             "posts" => $news
         ]);
@@ -43,8 +43,9 @@ class NewController extends Controller
      */
     public function store(PostFormRequest $request)
     {
-        // dd($request);
-        $new = News::create($request->validated());
+        $time = date('Y-m-d H:i:s');
+        $request->request->add(['date' => $time]);
+        $post = News::create($request->validated());
         return redirect(route('admin.news.index'));
     }
 
@@ -67,7 +68,10 @@ class NewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = News::findOrFail($id);
+        return view("admin.news.create", [
+            "post" => $post,
+        ]);
     }
 
     /**
@@ -77,9 +81,13 @@ class NewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostFormRequest $request, $id)
     {
-        //
+        $post = News::findOrFail($id);
+        $time = date('Y-m-d H:i:s');
+        $request->request->add(['date' => $time]);
+        $post->update($request->validated());
+        return redirect(route('admin.news.index'));
     }
 
     /**
